@@ -10,20 +10,22 @@ public class MouseLook : MonoBehaviour {
     public float sensitivity = 1;
     public float hoverRange = 3;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         mouseInteract = GetComponent<MouseInteract>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         float xMouse = Input.GetAxis("Mouse X");
         float yMouse = Input.GetAxis("Mouse Y");
 
         if (Mathf.Abs(xMouse) > 0.1 || Mathf.Abs(yMouse) > 0.1) {
             transform.Rotate(Vector3.up, xMouse * sensitivity, Space.Self);
-            camera.transform.Rotate(Vector3.right, yMouse * sensitivity * (invertY ? 1 : -1), Space.Self);
+            if ((camera.transform.localEulerAngles.x + yMouse * sensitivity * (invertY ? 1 : -1) + 180) % 360 < 270 && 
+                (camera.transform.localEulerAngles.x + yMouse * sensitivity * (invertY ? 1 : -1) + 180) % 360 > 90) {
+
+                camera.transform.Rotate(Vector3.right, yMouse * sensitivity * (invertY ? 1 : -1), Space.Self);
+            }
         }
         BloomReticle();
     }

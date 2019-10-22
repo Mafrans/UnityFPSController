@@ -30,7 +30,9 @@
 [Aa]ssets/AmplifyShaderEditor*
 [Aa]ssets/Blockout*
 [Aa]ssets/DynamicBone*
-[Aa]ssets/Low Poly Weapons VOL.2*
+[Aa]ssets/LowPoly*
+[Aa]ssets/EffectExamples*
+[Aa]ssets/TutorialInfo*
 
 # Visual Studio cache directory
 .vs/

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -47,6 +46,10 @@ public class MouseInteract : MonoBehaviour {
                     pickedUpItem = obj.GetComponent<ItemPickup>();
                     canThrow = false;
                     chargeThrow = 0;
+                }
+                else if(obj.GetComponent<Button>()) {
+                    Button btn = obj.GetComponent<Button>();
+                    btn.PushDown();
                 }
             }
         }
